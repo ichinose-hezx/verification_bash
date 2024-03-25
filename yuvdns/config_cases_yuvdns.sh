@@ -35,8 +35,9 @@ resolution_change() {
 
 localparam_change(){
     local param=$1
-    
-    sed -i '/^YUVDNS/s|.*|$param|' "$folder/Cmodel/run/config/config.txt"
+
+    # Change local parameter
+    sed -i "/^YUVDNS/s|.*|$param|" "$folder/Cmodel/run/config/config.txt"
     if [ $? -eq 0 ]; then
         ((modify_parameter_count++))
         echo "Modified local param in $folder"
@@ -71,7 +72,7 @@ for folder in $folders; do
     fi
 
     if [[ "$folder" == *"1080p"* ]]; then
-        resolution_change "list_1080p_1920x1080_16b.f" 720 1280
+        resolution_change "list_1080p_1920x1080_16b.f" 1080 1920
     fi
 
     if [[ "$folder" == *"2048x1536"* ]]; then
@@ -95,7 +96,7 @@ for folder in $folders; do
     fi
 
     if [[ "$folder" == *"paramax"* ]]; then
-        localparam_change "YUVDNS__BASE:0.en:1.a_y:15.b_y:15.sigma_y:255.a_c:15.b_c:15.sigma_c:255" 
+        localparam_change "YUVDNS__BASE:0.en:1.a_y:15.b_y:15.sigma_y:255.a_c:15.b_c:15.sigma_c:255," 
     fi
 
     if [[ "$folder" == *"paramin"* ]]; then
