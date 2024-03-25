@@ -20,13 +20,13 @@ for folder in $folders; do
     fi
 
     # Check if folder name contains "360p"
-    if [[ "$folder" == *"360p"* ]]; then
+    if [[ "$folder" == *"360p"* || "$folder" == *bypass ]]; then
         # Copy list_360p_352x288_16b.f to Cmodel/run/caselist directory
         cp "./auto_lsc_config/list_360p_352x288_16b.f" "$caselist_dir/"
         echo "Copied list_360p_352x288_16b.f to $caselist_dir"
-        sed -i '27s|list_360p_352x288_16b.f|list_360p_352x288_16b.f|' "$folder/vmodel/sim/tb_test.v"
-        sed -i '28s|list_360p_352x288_16b.f|list_360p_352x288_16b.f|' "$folder/vmodel/sim/tb_test.v"
-        sed -i '29s|list_360p_352x288_16b.f|list_360p_352x288_16b.f|' "$folder/vmodel/sim/tb_test.v"
+        sed -i '28s|10bit_360p.f|list_360p_352x288_16b.f|' "$folder/vmodel/sim/tb_test.v"
+        sed -i '29s|10bit_360p.f|list_360p_352x288_16b.f|' "$folder/vmodel/sim/tb_test.v"
+        sed -i '30s|10bit_360p.f|list_360p_352x288_16b.f|' "$folder/vmodel/sim/tb_test.v"
         ((caselist_count++))
     fi
 
@@ -34,9 +34,9 @@ for folder in $folders; do
         # Copy list_480p_640x480_16b.f to Cmodel/run/caselist directory
         cp "./auto_lsc_config/list_480p_640x480_16b.f" "$caselist_dir/"
         echo "Copied list_480p_640x480_16b.f to $caselist_dir"
-        sed -i '27s|list_360p_352x288_16b.f|list_480p_640x480_16b.f|' "$folder/vmodel/sim/tb_test.v"
-        sed -i '28s|list_360p_352x288_16b.f|list_480p_640x480_16b.f|' "$folder/vmodel/sim/tb_test.v"
-        sed -i '29s|list_360p_352x288_16b.f|list_480p_640x480_16b.f|' "$folder/vmodel/sim/tb_test.v"
+        sed -i '28s|10bit_360p.f|list_480p_640x480_16b.f|' "$folder/vmodel/sim/tb_test.v"
+        sed -i '29s|10bit_360p.f|list_480p_640x480_16b.f|' "$folder/vmodel/sim/tb_test.v"
+        sed -i '30s|10bit_360p.f|list_480p_640x480_16b.f|' "$folder/vmodel/sim/tb_test.v"
         ((caselist_count++))
 
         # Perform replacement and count occurrences
@@ -62,9 +62,9 @@ for folder in $folders; do
         # Copy list_720p_1280x720_16b.f to Cmodel/run/caselist directory
         cp "./auto_lsc_config/list_720p_1280x720_16b.f" "$caselist_dir/"
         echo "Copied list_720p_1280x720_16b.f to $caselist_dir"
-        sed -i '27s|list_360p_352x288_16b.f|list_720p_1280x720_16b.f|' "$folder/vmodel/sim/tb_test.v"
-        sed -i '28s|list_360p_352x288_16b.f|list_720p_1280x720_16b.f|' "$folder/vmodel/sim/tb_test.v"
-        sed -i '29s|list_360p_352x288_16b.f|list_720p_1280x720_16b.f|' "$folder/vmodel/sim/tb_test.v"
+        sed -i '28s|10bit_360p.f|list_720p_1280x720_16b.f|' "$folder/vmodel/sim/tb_test.v"
+        sed -i '29s|10bit_360p.f|list_720p_1280x720_16b.f|' "$folder/vmodel/sim/tb_test.v"
+        sed -i '30s|10bit_360p.f|list_720p_1280x720_16b.f|' "$folder/vmodel/sim/tb_test.v"
         ((caselist_count++))
         # Perform replacement and count occurrences
         sed -i 's|288|720|g' "$folder/Cmodel/run/config/config.txt"
@@ -89,9 +89,9 @@ for folder in $folders; do
         # Copy list_1080p_1920x1080_16b.f to Cmodel/run/caselist directory
         cp "./auto_lsc_config/list_1080p_1920x1080_16b.f" "$caselist_dir/"
         echo "Copied list_1080p_1920x1080_16b.f to $caselist_dir"
-        sed -i '27s|list_360p_352x288_16b.f|list_1080p_1920x1080_16b.f|' "$folder/vmodel/sim/tb_test.v"
-        sed -i '28s|list_360p_352x288_16b.f|list_1080p_1920x1080_16b.f|' "$folder/vmodel/sim/tb_test.v"
-        sed -i '29s|list_360p_352x288_16b.f|list_1080p_1920x1080_16b.f|' "$folder/vmodel/sim/tb_test.v"
+        sed -i '28s|10bit_360p.f|list_1080p_1920x1080_16b.f|' "$folder/vmodel/sim/tb_test.v"
+        sed -i '29s|10bit_360p.f|list_1080p_1920x1080_16b.f|' "$folder/vmodel/sim/tb_test.v"
+        sed -i '30s|10bit_360p.f|list_1080p_1920x1080_16b.f|' "$folder/vmodel/sim/tb_test.v"
         ((caselist_count++))
         # Perform replacement and count occurrences
         sed -i 's|288|1080|g' "$folder/Cmodel/run/config/config.txt"
@@ -116,9 +116,9 @@ for folder in $folders; do
         # Copy list_1080p_1920x1080_16b.f to Cmodel/run/caselist directory
         cp "./auto_lsc_config/list_2k_2048x1536_16b.f" "$caselist_dir/"
         echo "Copied list_2k_2048x1536_16b.f to $caselist_dir"
-        sed -i '27s|list_360p_352x288_16b.f|list_2k_2048x1536_16b.f|' "$folder/vmodel/sim/tb_test.v"
-        sed -i '28s|list_360p_352x288_16b.f|list_2k_2048x1536_16b.f|' "$folder/vmodel/sim/tb_test.v"
-        sed -i '29s|list_360p_352x288_16b.f|list_2k_2048x1536_16b.f|' "$folder/vmodel/sim/tb_test.v"
+        sed -i '28s|10bit_360p.f|list_2k_2048x1536_16b.f|' "$folder/vmodel/sim/tb_test.v"
+        sed -i '29s|10bit_360p.f|list_2k_2048x1536_16b.f|' "$folder/vmodel/sim/tb_test.v"
+        sed -i '30s|10bit_360p.f|list_2k_2048x1536_16b.f|' "$folder/vmodel/sim/tb_test.v"
         ((caselist_count++))
         # Perform replacement and count occurrences
         sed -i 's|288|1536|g' "$folder/Cmodel/run/config/config.txt"
@@ -139,53 +139,63 @@ for folder in $folders; do
         fi
     fi
 
-    if [[ "$folder" == *"para1"* ]]; then
-        sed -i '3s|.*|LSC__GRID:0.en:1.strength:113,|' "$folder/Cmodel/run/config/config.txt"
+    if [[ "$folder" == *"bypass"* ]]; then
+        sed -i '/^LSC/s|.*|LSC__GRID:0.en:0.strength:113,|' "$folder/Cmodel/run/config/config.txt"
         if [ $? -eq 0 ]; then
             ((modify_parameter_count++))
-            echo "Modified strength in $folder"
+            echo "Modified local param in $folder"
         else
-            echo "Failed to modify strength in $folder"
+            echo "Failed to modify local param in $folder"
+        fi
+    fi
+
+    if [[ "$folder" == *"para1"* ]]; then
+        sed -i '/^LSC/s|.*|LSC__GRID:0.en:1.strength:113,|' "$folder/Cmodel/run/config/config.txt"
+        if [ $? -eq 0 ]; then
+            ((modify_parameter_count++))
+            echo "Modified local param in $folder"
+        else
+            echo "Failed to modify local param in $folder"
         fi
     fi
 
     if [[ "$folder" == *"para2"* ]]; then
-        sed -i '3s|.*|LSC__GRID:0.en:1.strength:49,|' "$folder/Cmodel/run/config/config.txt"
+        sed -i '/^LSC/s|.*|LSC__GRID:0.en:1.strength:49,|' "$folder/Cmodel/run/config/config.txt"
         if [ $? -eq 0 ]; then
             ((modify_parameter_count++))
-            echo "Modified strength in $folder"
+            echo "Modified local param in $folder"
         else
-            echo "Failed to modify strength in $folder"
+            echo "Failed to modify local param in $folder"
         fi
     fi
 
     if [[ "$folder" == *"para3"* ]]; then
-        sed -i '3s|.*|LSC__GRID:0.en:1.strength:8,|' "$folder/Cmodel/run/config/config.txt"
+        sed -i '/^LSC/s|.*|LSC__GRID:0.en:1.strength:8,|' "$folder/Cmodel/run/config/config.txt"
         if [ $? -eq 0 ]; then
             ((modify_parameter_count++))
-            echo "Modified strength in $folder"
+            echo "Modified local param in $folder"
         else
-            echo "Failed to modify strength in $folder"
+            echo "Failed to modify local param in $folder"
         fi
     fi
 
     if [[ "$folder" == *"paramin"* ]]; then
-        sed -i '3s|.*|LSC__GRID:0.en:1.strength:0,|' "$folder/Cmodel/run/config/config.txt"
+        sed -i '/^LSC/s|.*|LSC__GRID:0.en:1.strength:0,|' "$folder/Cmodel/run/config/config.txt"
         if [ $? -eq 0 ]; then
             ((modify_parameter_count++))
-            echo "Modified strength in $folder"
+            echo "Modified local param in $folder"
         else
-            echo "Failed to modify strength in $folder"
+            echo "Failed to modify local param in $folder"
         fi
     fi
 
     if [[ "$folder" == *"paramax"* ]]; then
-        sed -i '3s|.*|LSC__GRID:0.en:1.strength:128,|' "$folder/Cmodel/run/config/config.txt"
+        sed -i '/^LSC/s|.*|LSC__GRID:0.en:1.strength:128,|' "$folder/Cmodel/run/config/config.txt"
         if [ $? -eq 0 ]; then
             ((modify_parameter_count++))
-            echo "Modified strength in $folder"
+            echo "Modified local param in $folder"
         else
-            echo "Failed to modify strength in $folder"
+            echo "Failed to modify local param in $folder"
         fi
     fi
 done

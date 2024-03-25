@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Source folder path
-source_folder="/net/dellr940d/export/ybfan2/hezx/RTL_Verification/sim_0306/lsc/lsc_frame_360p_raw16_parayyy_lut1"
+source_folder="/net/dellr940d/export/ybfan2/hezx/RTL_Verification/sim_0319/yuvdns/yuvdns_bypass"
 
 # Read folder names from file and process line by line
 echo "Copying folders:"
@@ -25,4 +25,4 @@ while IFS= read -r folder_name; do
     # Copy source folder and rename
     cp -r "$source_folder" "$folder_name"
     echo "Source folder copied and renamed to '$folder_name'"
-done < cases_name.txt
+done < cases_name_yuvdns.txt
