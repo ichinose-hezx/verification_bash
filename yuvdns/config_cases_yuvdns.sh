@@ -13,21 +13,27 @@ resolution_change() {
     local width=$3
 
     # Copy list to Cmodel/run/caselist directory
-    cp "./auto_lsc_config/$caselist_file_name" "$caselist_dir/"
+    cp "./auto_config/$caselist_file_name" "$caselist_dir/"
     echo "Copied $caselist_file_name to $caselist_dir"
 
     # Change list in testbench
-    sed -i "s|10bit_360p.f|$caselist_file_name|g" "$folder/vmodel/sim/tb_test.v"
+    sed -i "s|test_l.f|$caselist_file_name|g" "$folder/vmodel/sim/tb_test.v"
+    sed -i "s|test_m.f|$caselist_file_name|g" "$folder/vmodel/sim/tb_test.v"
+    sed -i "s|test_s.f|$caselist_file_name|g" "$folder/vmodel/sim/tb_test.v"
     ((caselist_count++))
 
     # Perform replacement and count occurrences for height
-    sed -i "s|:288.|:$height.|g" "$folder/Cmodel/run/config/config.txt"
+    sed -i "s|Global_FrameHeight:200|Global_FrameHeight:$height|g" "$folder/Cmodel/run/config/config.txt"
+    sed -i "s|Sta_win_height:200|Sta_win_height:$height|g" "$folder/Cmodel/run/config/config.txt"
+    sed -i "s|Sta_region_h:200|Sta_region_h:$height|g" "$folder/Cmodel/run/config/config.txt"
     replace_count=$(grep -o "$height" "$folder/Cmodel/run/config/config.txt" | wc -l)
     ((modify_height_count+=replace_count))
     echo "Modified height $replace_count times in $folder"
 
     # Perform replacement and count occurrences for width
-    sed -i "s|:352.|:$width.|g" "$folder/Cmodel/run/config/config.txt"
+    sed -i "s|Global_FrameWidth:200|Global_FrameWidth:$width|g" "$folder/Cmodel/run/config/config.txt"
+    sed -i "s|Sta_win_width:200|Sta_win_width:$width|g" "$folder/Cmodel/run/config/config.txt"
+    sed -i "s|Sta_region_w:200|Sta_region_w:$width|g" "$folder/Cmodel/run/config/config.txt"
     replace_count=$(grep -o "$width" "$folder/Cmodel/run/config/config.txt" | wc -l)
     ((modify_width_count+=replace_count))
     echo "Modified width $replace_count times in $folder"
