@@ -78,7 +78,7 @@ lut_change(){
     ((copylut_count++))
 
     # Change vlut
-    sed -i "s|lsc858_12fracbit_tb|$lutname|g" "$folder/vmodel/sim/tb_test.v"
+    sed -i "s|lsc858_12fracbit_tb.txt|$lutname|g" "$folder/vmodel/sim/tb_test.v"
     if [ $? -eq 0 ]; then
         echo "Modified tb_test.v in $folder for $lutnum"
         ((modify_vlut_count++))
