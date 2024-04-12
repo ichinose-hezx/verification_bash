@@ -116,7 +116,7 @@ blc_change(){
     local blcB=$4
 
     # Change blc parameter
-    sed -i "s|Global_blc_R:0.Global_blc_Gr:0.Global_blc_Gb:0.Global_blc_B:0.|Global_blc_R:$blcR.Global_blc_Gr:$blcGr.Global_blc_Gb:$blcGb.Global_blc_B:$blcB.|g" "$folder/Cmodel/run/config/config.txt"
+    sed -i "s|lsc_blc_R:3824.lsc_blc_Gr:3888.lsc_blc_Gb:3872.lsc_blc_B:3808,|lsc_blc_R:$blcR.lsc_blc_Gr:$blcGr.lsc_blc_Gb:$blcGb.lsc_blc_B:$blcB,|g" "$folder/Cmodel/run/config/config.txt"
     if [ $? -eq 0 ]; then
         ((modify_blc_count++))
         echo "Modified blcparam in $folder"
@@ -140,27 +140,27 @@ for folder in $folders; do
 
     if [[ "$folder" == *"bypass"* ]]; then
         resolution_change "list_360p_352x288_16b.f" 288 352
-        localparam_change "LSC__GRID:0.en:0.strength:113.isp_datin_bits:16,"
+        localparam_change "LSC__GRID:0.en:0.strength:113.isp_datin_bits:16.lsc_blc_R:3824.lsc_blc_Gr:3888.lsc_blc_Gb:3872.lsc_blc_B:3808,"
     fi
 
     if [[ "$folder" == *"para1"* ]]; then
-        localparam_change "LSC__GRID:0.en:1.strength:113.isp_datin_bits:16,"
+        localparam_change "LSC__GRID:0.en:0.strength:113.isp_datin_bits:16.lsc_blc_R:3824.lsc_blc_Gr:3888.lsc_blc_Gb:3872.lsc_blc_B:3808,"
     fi
 
     if [[ "$folder" == *"para2"* ]]; then
-        localparam_change "LSC__GRID:0.en:1.strength:49.isp_datin_bits:16," 
+        localparam_change "LSC__GRID:0.en:0.strength:49.isp_datin_bits:16.lsc_blc_R:3824.lsc_blc_Gr:3888.lsc_blc_Gb:3872.lsc_blc_B:3808," 
     fi
 
     if [[ "$folder" == *"para3"* ]]; then
-        localparam_change "LSC__GRID:0.en:1.strength:8.isp_datin_bits:16," 
+        localparam_change "LSC__GRID:0.en:0.strength:8.isp_datin_bits:16.lsc_blc_R:3824.lsc_blc_Gr:3888.lsc_blc_Gb:3872.lsc_blc_B:3808,"
     fi
 
     if [[ "$folder" == *"paramax"* ]]; then
-        localparam_change "LSC__GRID:0.en:1.strength:128.isp_datin_bits:16," 
+        localparam_change "LSC__GRID:0.en:0.strength:128.isp_datin_bits:16.lsc_blc_R:3824.lsc_blc_Gr:3888.lsc_blc_Gb:3872.lsc_blc_B:3808," 
     fi
 
     if [[ "$folder" == *"paramin"* ]]; then
-        localparam_change "LSC__GRID:0.en:1.strength:0.isp_datin_bits:16," 
+        localparam_change "LSC__GRID:0.en:0.strength:0.isp_datin_bits:16.lsc_blc_R:3824.lsc_blc_Gr:3888.lsc_blc_Gb:3872.lsc_blc_B:3808," 
     fi
 
 

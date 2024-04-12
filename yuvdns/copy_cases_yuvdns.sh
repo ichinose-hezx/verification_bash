@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Source folder path
-source_folder="/net/dellr940d/export/ybfan2/hezx/RTL_Verification/sim_0329/yuvdns/yuvdns_bypass"
+source_folder="/net/dellr940d/export/ybfan2/hezx/RTL_Verification/sim_0412/yuvdns/yuvdns_bypass"
 
 # Read folder names from file and process line by line
 echo "Copying folders:"
