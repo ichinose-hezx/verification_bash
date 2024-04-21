@@ -292,22 +292,37 @@ for folder in $folders; do
     if [[ "$folder" == *"lut2"* ]]; then
         lut_change "lsc651_12fracbit_tb.txt" "lut2"  
     fi
-
     if [[ "$folder" == *"lut3"* ]]; then
         lut_change "lsc383_12fracbit_tb.txt" "lut3" 
     fi
-
     if [[ "$folder" == *"lutmax"* ]]; then
         lut_change "lscmax_tb.txt" "lutmax" 
     fi
-
     if [[ "$folder" == *"lutmin"* ]]; then
         lut_change "lscmin_tb.txt" "lutmin" 
     fi
-
     if [[ "$folder" == *"lutran"* ]]; then
         lut_change "lscran_tb.txt" "lutran" 
     fi
+
+    if [[ "$folder" == *"160x120"* ]]; then
+        resolution_change "list_160x120_16b.f" 120 160  
+    fi
+    if [[ "$folder" == *"160x1536"* ]]; then
+        resolution_change "list_160x1536_16b.f" 1536 160  
+    fi
+    if [[ "$folder" == *"2048x120"* ]]; then
+        resolution_change "list_3048x120_16b.f" 120 2048   
+    fi
+    if [[ "$folder" == *"386x1122"* ]]; then
+        resolution_change "list_386x1122_16b.f" 1122 386   
+    fi
+    if [[ "$folder" == *"1482x1282"* ]]; then
+        resolution_change "list_1482x1282_16b.f" 1282 1482  
+    fi
+
+
+
 done
 
 echo "Total files removed: $remove_count"
