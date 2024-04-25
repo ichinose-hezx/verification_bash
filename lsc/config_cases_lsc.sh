@@ -142,23 +142,23 @@ for folder in $folders; do
     fi
 
     if [[ "$folder" == *"para1"* ]]; then
-        localparam_change "LSC__GRID:0.en:0.strength:113.isp_datin_bits:16.lsc_blc_R:3824.lsc_blc_Gr:3888.lsc_blc_Gb:3872.lsc_blc_B:3808,"
+        localparam_change "LSC__GRID:0.en:1.strength:113.isp_datin_bits:16.lsc_blc_R:3824.lsc_blc_Gr:3888.lsc_blc_Gb:3872.lsc_blc_B:3808,"
     fi
 
     if [[ "$folder" == *"para2"* ]]; then
-        localparam_change "LSC__GRID:0.en:0.strength:49.isp_datin_bits:16.lsc_blc_R:3824.lsc_blc_Gr:3888.lsc_blc_Gb:3872.lsc_blc_B:3808," 
+        localparam_change "LSC__GRID:0.en:1.strength:49.isp_datin_bits:16.lsc_blc_R:3824.lsc_blc_Gr:3888.lsc_blc_Gb:3872.lsc_blc_B:3808," 
     fi
 
     if [[ "$folder" == *"para3"* ]]; then
-        localparam_change "LSC__GRID:0.en:0.strength:8.isp_datin_bits:16.lsc_blc_R:3824.lsc_blc_Gr:3888.lsc_blc_Gb:3872.lsc_blc_B:3808,"
+        localparam_change "LSC__GRID:0.en:1.strength:8.isp_datin_bits:16.lsc_blc_R:3824.lsc_blc_Gr:3888.lsc_blc_Gb:3872.lsc_blc_B:3808,"
     fi
 
     if [[ "$folder" == *"paramax"* ]]; then
-        localparam_change "LSC__GRID:0.en:0.strength:128.isp_datin_bits:16.lsc_blc_R:3824.lsc_blc_Gr:3888.lsc_blc_Gb:3872.lsc_blc_B:3808," 
+        localparam_change "LSC__GRID:0.en:1.strength:128.isp_datin_bits:16.lsc_blc_R:3824.lsc_blc_Gr:3888.lsc_blc_Gb:3872.lsc_blc_B:3808," 
     fi
 
     if [[ "$folder" == *"paramin"* ]]; then
-        localparam_change "LSC__GRID:0.en:0.strength:0.isp_datin_bits:16.lsc_blc_R:3824.lsc_blc_Gr:3888.lsc_blc_Gb:3872.lsc_blc_B:3808," 
+        localparam_change "LSC__GRID:0.en:1.strength:0.isp_datin_bits:16.lsc_blc_R:3824.lsc_blc_Gr:3888.lsc_blc_Gb:3872.lsc_blc_B:3808," 
     fi
 
 
