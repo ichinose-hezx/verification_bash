@@ -27,9 +27,7 @@ resolution_change() {
     echo "Copied $caselist_file_name to $caselist_dir"
 
     # Change list in testbench
-    sed -i "s|test_l.f|$caselist_file_name|g" "$folder/vmodel/sim/tb_test.v"
     sed -i "s|test_m.f|$caselist_file_name|g" "$folder/vmodel/sim/tb_test.v"
-    sed -i "s|test_s.f|$caselist_file_name|g" "$folder/vmodel/sim/tb_test.v"
     ((caselist_count++))
 
     # Perform replacement and count occurrences for height
@@ -306,19 +304,10 @@ for folder in $folders; do
     fi
 
     if [[ "$folder" == *"160x120"* ]]; then
-        resolution_change "list_160x120_16b.f" 120 160  
+        resolution_change "list_2k_2048x1536_16b.f" 120 160  
     fi
-    if [[ "$folder" == *"160x1536"* ]]; then
-        resolution_change "list_160x1536_16b.f" 1536 160  
-    fi
-    if [[ "$folder" == *"2048x120"* ]]; then
-        resolution_change "list_3048x120_16b.f" 120 2048   
-    fi
-    if [[ "$folder" == *"386x1122"* ]]; then
-        resolution_change "list_386x1122_16b.f" 1122 386   
-    fi
-    if [[ "$folder" == *"1482x1282"* ]]; then
-        resolution_change "list_1482x1282_16b.f" 1282 1482  
+    if [[ "$folder" == *"ranpara"* ]]; then
+        resolution_change "list_2k_2048x1536_16b.f" $(( $(shuf -i 60-768 -n 1)*2 )) $(( $(shuf -i 80-1024 -n 1)*2 ))  
     fi
 
 
