@@ -17,7 +17,9 @@ resolution_change() {
     echo "Copied $caselist_file_name to $caselist_dir"
 
     # Change list in testbench
+    sed -i "s|test_l.f|$caselist_file_name|g" "$folder/vmodel/sim/tb_test.v"
     sed -i "s|test_m.f|$caselist_file_name|g" "$folder/vmodel/sim/tb_test.v"
+    sed -i "s|test_s.f|$caselist_file_name|g" "$folder/vmodel/sim/tb_test.v"
     ((caselist_count++))
 
     # Perform replacement and count occurrences for height
